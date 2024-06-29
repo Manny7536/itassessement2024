@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="validate.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo"><a href="index.html"><img src="image/mlogo.png" height="100px" width="225px"></a></div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+        <div class="nav-links">
+            <a href="blog.html">Blog</a>
+            <a href="aboutme.html">About Me</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+    <div class="social-sidebar">
+        <a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.twitter.com" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.youtube.com" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+    
+    </div>
+    <br>
+    <br>
+    <div class="contact">
+        <h1 style="color: #475348">Contact me here</h1>
+        <br>
+        <p style="color: #475348">info@subash@gmail.com | 123-456-7890</p>
+        <br>
+        <br>
+        <h2 style="color: #475348 ">Or just drop me a line here</h2>
+        <br>
+    <!-- <h1 style="margin: 125px;">Blog</h1> -->
+    
+    <form id="contactForm">
+        <table>
+            <tr>
+                <td><label for="firstName">First Name</label></td>
+                <td><label for="lastName">Last Name</label></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="firstName" name="firstName"></td>
+                <td><input type="text" id="lastName" name="lastName"></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email*</label></td>
+                <td><label for="phone">Phone</label></td>
+            </tr>
+            <tr>
+                <td><input type="email" id="email" name="email" required></td>
+                <td><input type="text" id="phone" name="phone"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><label for="message">Message</label></td>
+            </tr>
+            <tr>
+                <td colspan="2"><textarea id="message" name="message" rows="4"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <button type="submit">Send</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    </div>
+    <br>
+    <div class="footer">
+        <div class="logo">
+            <img src="image/logo.png" alt="logo" width="100px" height=100px>
+        </div>
+        <div class="middle">
+            <a href="index.html">Home</a>
+            <a href="aboutme.html">About Me</a>
+            <a href="blog.html">Blog</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="mail">
+            <p style="color: white;">Subscribe here and get the latest travel tips and my insider secrets!</p>
+            <div class="subscribe">
+                <input type="email" placeholder="Email">
+                <button>Subscribe</button>
+            </div>
+        </div>
+    </div>
+    <div class="warning">
+        <p> On The Trial My Travel Blog CopyrighT © 2024 All Rights Reserved.</p>
+    </div>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+event.preventDefault();
+
+var firstName = document.getElementById('firstName').value;
+var lastName = document.getElementById('lastName').value;
+var email = document.getElementById('email').value;
+var phone = document.getElementById('phone').value;
+var message = document.getElementById('message').value;
+
+if (!firstName) {
+    alert("First Name is required");
+    return false;
+}
+if (!lastName) {
+    alert("Last Name is required");
+    return false;
+}
+if (!email) {
+    alert("Email is required");
+    return false;
+}
+if (!validateEmail(email)) {
+    alert("Please enter a valid email");
+    return false;
+}
+if (phone && !validatePhone(phone)) {
+    alert("Please enter a valid phone number");
+    return false;
+}
+alert("Form Submitted Successfully");
+return true;
+});
+
+function validateEmail(email) {
+var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+return re.test(String(email).toLowerCase());
+}
+
+function validatePhone(phone) {
+var re = /^\d{10}$/;
+return re.test(String(phone));
+}
+    </script>
+</body>
+</html>
